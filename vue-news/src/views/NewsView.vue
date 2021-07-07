@@ -1,24 +1,19 @@
 <template>
   <div>
-    <div v-for="(item, index) in news" v-bind:key="index">{{ item.title }}</div>
+    <p v-for="(item, index) in this.$store.state.news" v-bind:key="index">
+      <a :href="item.url">{{ item.title }}</a>
+      <small>{{ item.time_ago }} by {{ item.user }}</small>
+    </p>
   </div>
 </template>
 
 <script>
-import { fetchNewsList } from "../api/index";
-
 export default {
   data() {
-    return {
-      news: [],
-    };
+    return {};
   },
   created() {
-    fetchNewsList()
-      .then((response) => {
-        this.news = response.data;
-      })
-      .catch();
+    this.$store.dispatch("FETCH_NEWS");
   },
 };
 </script>
