@@ -15,27 +15,27 @@ const routes = [
   },
   {
     path: "/news",
-    name: "News",
+    name: "news",
     component: NewsView,
   },
   {
     path: "/jobs",
-    name: "Jobs",
+    name: "jobs",
     component: JobsView,
   },
   {
     path: "/ask",
-    name: "Ask",
+    name: "ask",
     component: AskView,
   },
   {
     path: "/user/:id",
-    name: "User",
+    name: "user",
     component: UserView,
   },
   {
     path: "/item/:id",
-    name: "Item",
+    name: "item",
     component: ItemView,
   },
 

@@ -1,21 +1,44 @@
 <template>
   <div>
-    <p v-for="(item, index) in this.$store.state.jobs" v-bind:key="index">
-      <a :href="item.url">{{ item.title }}</a>
-      <small>{{ item.time_ago }} by {{ item.user }}</small>
-    </p>
+    <list-item />
   </div>
 </template>
 
 <script>
+import ListItem from "../components/ListItem.vue";
 export default {
-  data() {
-    return {};
-  },
-  created() {
-    this.$store.dispatch("FETCH_JOBS");
+  components: {
+    ListItem,
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+.jobs-list {
+  margin: 0;
+  padding: 0;
+}
+.post {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.points {
+  width: 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #42b883;
+}
+
+.jobs-title {
+  margin: 0;
+}
+
+.link-text {
+  color: #828282;
+}
+</style>
