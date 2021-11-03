@@ -1,16 +1,15 @@
 <template>
   <div>
-    <canvas id="lineChart"></canvas>
+    <canvas ref="lineChart" id="lineChart"></canvas>
   </div>
 </template>
 
 <script>
-import Chart from "chart.js";
 export default {
   mounted() {
-    var ctx = document.getElementById("lineChart");
+    var ctx = this.$refs.lineChart.getContext("2d");
     // eslint-disable-next-line no-unused-vars
-    var myChart = new Chart(ctx, {
+    var myChart = new this.$_Chart(ctx, {
       type: "line",
       data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
